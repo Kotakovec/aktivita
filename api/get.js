@@ -6,7 +6,7 @@ const firebaseConfig = {
   authDomain: "status2-ccf4d.firebaseapp.com",
   databaseURL: "https://status2-ccf4d-default-rtdb.europe-west1.firebasedatabase.app/",
   projectId: "status2-ccf4d",
-  storageBucket: "status2-ccf4d.firebasestorage.app",
+  storageBucket: "status2-ccf4d.appspot.com",
   messagingSenderId: "170845328997",
   appId: "1:170845328997:web:3243e6d771ae6f5c85d88c",
   measurementId: "G-E9TSV3D5K9"
