@@ -39,9 +39,9 @@ export default async function handler(req, res) {
       return res.status(401).json({ error: "Unauthorized" });
     }*/
 
-    if (typeof path !== "string") {
+    if (typeof usr !== "string") {
       console.log("❌ Invalid 'path' type");
-      return res.status(400).json({ error: "'path' must be a string" });
+      return res.status(400).json({ error: "'usr' must be a string" });
     }
 
     const db = getDatabase(app);
@@ -49,11 +49,11 @@ export default async function handler(req, res) {
     const snapshot = await get(dataRef);
 
     if (!snapshot.exists()) {
-      console.log("⚠️ No data found at: " + path);
+      console.log("⚠️ No data found at: " + "users/"+usr);
       return res.status(404).json({ error: "No data found" });
     }
 
-    console.log("✅ Data read from: " + path);
+    console.log("✅ Data read from: " + "users/"+usr);
     return res.status(200).json({ success: true, data: snapshot.val() });
 
   } catch (err) {
