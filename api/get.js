@@ -32,7 +32,7 @@ export default async function handler(req, res) {
 
   try {
     const { usr } = req.body || {}; // removed 'data'
-    console.log("📥 Body received", { pw, usr });
+    console.log("📥 Body received", { usr });
 
     /*if (pw !== "frconzole24") {
       debug.push("❌ Bad password");
