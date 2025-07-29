@@ -22,12 +22,11 @@ if (!global._firebaseApp) {
 }
 
 export default async function handler(req, res) {
-  const debug = [];
 
   debug.push("🔥 handler start");
   if (req.method !== "POST") {
     debug.push("❌ Wrong method: " + req.method);
-    return res.status(405).json({ error: "Method not allowed", debug });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
@@ -36,17 +35,17 @@ export default async function handler(req, res) {
 
     if (pw !== "frconzole24") {
       debug.push("❌ Bad password");
-      return res.status(401).json({ error: "Unauthorized", debug });
+      return res.status(401).json({ error: "Unauthorized" });
     }
 
     if (typeof path !== "string") {
       debug.push("❌ Invalid 'path' type");
-      return res.status(400).json({ error: "'path' must be a string", debug });
+      return res.status(400).json({ error: "'path' must be a string" });
     }
 
     if (typeof data !== "object" || data === null) {
       debug.push("❌ Invalid 'data' type");
-      return res.status(400).json({ error: "'data' must be an object", debug });
+      return res.status(400).json({ error: "'data' must be an object" });
     }
 
     const db = getDatabase(app);
@@ -54,10 +53,10 @@ export default async function handler(req, res) {
     await set(dataRef, data);
 
     debug.push("✅ Data saved to: " + path);
-    return res.status(200).json({ success: true, debug });
+    return res.status(200).json({ success: true });
 
   } catch (err) {
     debug.push("💥 Exception: " + err.message);
-    return res.status(500).json({ error: err.message, debug });
+    return res.status(500).json({ error: err.message });
   }
 }

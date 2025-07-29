@@ -22,7 +22,6 @@ if (!global._firebaseApp) {
 }
 
 export default async function handler(req, res) {
-  const debug = [];
 
   console.log("🔥 handler start");
   if (req.method !== "POST") {
@@ -32,7 +31,7 @@ export default async function handler(req, res) {
 
   try {
     const { usr } = req.body || {}; // removed 'data'
-    console.log("📥 Body received", { usr });
+    console.log("📥 Body received");
 
     /*if (pw !== "frconzole24") {
       debug.push("❌ Bad password");
